@@ -2,7 +2,7 @@ package board;
 
 import common.Position;
 import exception.BoardInitializationException;
-import piece.Pawn;
+import piece.Piece;
 
 import java.util.List;
 
@@ -11,16 +11,16 @@ public class ChessBoard {
     int COLUMNS = 8;
 
 
-    private Pawn[][] board = new Pawn[ROWS][COLUMNS];
+    private Piece[][] board = new Piece[ROWS][COLUMNS];
 
     public ChessBoard() {
     }
 
-    public Pawn[][] getBoard() {
+    public Piece[][] getBoard() {
         return board;
     }
 
-    public ChessBoard(List<Pawn> pawns, List<Position> positions) throws BoardInitializationException {
+    public ChessBoard(List<Piece> pawns, List<Position> positions) throws BoardInitializationException {
         if(pawns.size() != positions.size()){
             throw new BoardInitializationException("Pieces and Positions dont match");
         }
@@ -37,7 +37,7 @@ public class ChessBoard {
         }
     }
 
-    public Pawn getPieceAt(Position position) {
+    public Piece getPieceAt(Position position) {
         return board[position.getX()][position.getY()];
     }
 

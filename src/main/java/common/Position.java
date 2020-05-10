@@ -11,6 +11,11 @@ public class Position {
         this.y = y;
     }
 
+    public Position(String position) {
+        this.x = (int) position.charAt(0) - 65;
+        this.y = Integer.parseInt(String.valueOf(position.charAt(1))) - 1;
+    }
+
     public int getX() {
         return x;
     }
@@ -35,9 +40,6 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+       return (char)(this.x + 65) + String.valueOf(this.y + 1);
     }
 }

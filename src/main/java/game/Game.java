@@ -3,7 +3,7 @@ package game;
 import board.ChessBoard;
 import common.Position;
 import exception.BoardInitializationException;
-import piece.Pawn;
+import piece.Piece;
 import rule.Rule;
 
 import java.util.ArrayList;
@@ -17,12 +17,12 @@ public class Game {
 
     ChessBoard board;
 
-    public Game(Pawn aPawn, Position position) throws BoardInitializationException {
+    public Game(Piece aPawn, Position position) throws BoardInitializationException {
         this.board = new ChessBoard(asList(aPawn), asList(position));
     }
 
     public Set<Position> getMoves(Position position) {
-        Pawn piece = board.getPieceAt(position);
+        Piece piece = board.getPieceAt(position);
         List<Rule> rules = piece.getRules(position);
 
         Set<Position> moves = rules.stream().map(rule -> applyRule(rule, position)).flatMap(List::stream).collect(Collectors.toSet());

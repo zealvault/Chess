@@ -6,7 +6,7 @@ import rule.Rule;
 import java.util.Arrays;
 import java.util.List;
 
-public class Pawn {
+public class Pawn extends Piece {
 
     public Pawn() {
     }
