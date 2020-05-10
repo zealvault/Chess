@@ -42,6 +42,6 @@ public class ChessBoard {
     }
 
     public boolean isValid(Position position) {
-        return (position.getX() <= ROWS && position.getX() >= 0) && (position.getY() <= ROWS && position.getY() >= 0);
+        return (position.getX() < ROWS && position.getX() >= 0) && (position.getY() < COLUMNS && position.getY() >= 0);
     }
 }
