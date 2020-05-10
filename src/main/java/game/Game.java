@@ -26,7 +26,7 @@ public class Game {
         List<Rule> rules = piece.getRules(position);
 
         Set<Position> moves = rules.stream().map(rule -> applyRule(rule, position)).flatMap(List::stream).collect(Collectors.toSet());
-        return moves;
+        return moves.stream().filter(pos -> board.isValid(pos)).collect(Collectors.toSet());
     }
 
     private List<Position> applyRule(Rule rule, Position initialPosition){
@@ -39,4 +39,5 @@ public class Game {
         }
         return positions;
     }
+
 }

@@ -40,4 +40,8 @@ public class ChessBoard {
     public Pawn getPieceAt(Position position) {
         return board[position.getX()][position.getY()];
     }
+
+    public boolean isValid(Position position) {
+        return (position.getX() <= ROWS && position.getX() >= 0) && (position.getY() <= ROWS && position.getY() >= 0);
+    }
 }
