@@ -10,9 +10,14 @@ public class ChessBoard {
     int ROWS = 8;
     int COLUMNS = 8;
 
-     Pawn[][] board = new Pawn[ROWS][COLUMNS];
+
+    private Pawn[][] board = new Pawn[ROWS][COLUMNS];
 
     public ChessBoard() {
+    }
+
+    public Pawn[][] getBoard() {
+        return board;
     }
 
     public ChessBoard(List<Pawn> pawns, List<Position> positions) throws BoardInitializationException {
@@ -24,5 +29,15 @@ public class ChessBoard {
                 || (position.getY() >= COLUMNS || position.getY() < 0))){
             throw new BoardInitializationException("Invalid Position passed");
         }
+
+        int counter = 0;
+        for(Position position : positions){
+            board[position.getX()][position.getY()] = pawns.get(counter);
+            counter++;
+        }
+    }
+
+    public Pawn getPieceAt(Position position) {
+        return board[position.getX()][position.getY()];
     }
 }

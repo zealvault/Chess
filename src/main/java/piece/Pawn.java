@@ -13,8 +13,8 @@ public class Pawn {
 
     public List<Rule> getRules(Position position) {
         Rule moveAStepForward = new Rule(1, previousPosition -> new Position(previousPosition.getX() + 1, previousPosition.getY()));
-        Rule moveAStepDiagonallyRight = new Rule(1, previousPosition -> new Position(previousPosition.getX() + 1, previousPosition.getY()));
-        Rule moveAStepDiagonallyLeft = new Rule(1, previousPosition -> new Position(previousPosition.getX() + 1, previousPosition.getY()));
+        Rule moveAStepDiagonallyRight = new Rule(1, previousPosition -> new Position(previousPosition.getX() + 1, previousPosition.getY() - 1));
+        Rule moveAStepDiagonallyLeft = new Rule(1, previousPosition -> new Position(previousPosition.getX() + 1, previousPosition.getY() + 1));
 
         return Arrays.asList(moveAStepForward, moveAStepDiagonallyRight, moveAStepDiagonallyLeft);
     }
