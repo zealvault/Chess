@@ -12,6 +12,9 @@ public abstract class Piece {
             case "Pawn": return new Pawn();
             case "Queen": return new Queen();
             case "Horse": return new Horse();
+            case "King": return new King();
+            case "Rook": return new Rook();
+            case "Bishop": return new Bishop();
             default: throw new InvalidPieceException(s + "is not a valid chess piece");
         }
     }

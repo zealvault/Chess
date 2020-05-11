@@ -1,6 +1,7 @@
 package piece;
 
 import common.Position;
+import rule.Moves;
 import rule.Rule;
 
 import java.util.Arrays;
@@ -11,11 +12,11 @@ public class Bishop extends Piece {
     }
 
     public List<Rule> getRules(Position position) {
-        Rule moveDiagonallyRight = new Rule(8, previousPosition -> new Position(previousPosition.getX() + 1, previousPosition.getY() - 1));
-        Rule moveDiagonallyLeft = new Rule(8, previousPosition -> new Position(previousPosition.getX() + 1, previousPosition.getY() + 1));
+        Rule moveDiagonallyRight = new Rule(8, Moves.moveDiagonallyRight);
+        Rule moveDiagonallyRightBack = new Rule(8, Moves.moveDiagonallyRightBack);
 
-        Rule moveDiagonallyRightBack = new Rule(8, previousPosition -> new Position(previousPosition.getX() - 1, previousPosition.getY() + 1));
-        Rule moveDiagonallyLeftBack = new Rule(8, previousPosition -> new Position(previousPosition.getX() - 1, previousPosition.getY() - 1));
+        Rule moveDiagonallyLeft = new Rule(8, Moves.moveDiagonallyLeft);
+        Rule moveDiagonallyLeftBack = new Rule(8, Moves.moveDiagonallyLeftBack);
 
         return Arrays.asList(moveDiagonallyRight, moveDiagonallyLeft, moveDiagonallyRightBack, moveDiagonallyLeftBack);
     }

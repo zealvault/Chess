@@ -10,7 +10,6 @@ public class ChessBoard {
     int ROWS = 8;
     int COLUMNS = 8;
 
-
     private Piece[][] board = new Piece[ROWS][COLUMNS];
 
     public ChessBoard() {

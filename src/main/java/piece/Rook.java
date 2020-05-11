@@ -17,7 +17,6 @@ public class Rook extends Piece {
         Rule moveBackward = new Rule(8, previousPosition -> new Position(previousPosition.getX() - 1, previousPosition.getY()));
         Rule moveRight = new Rule(8, previousPosition -> new Position(previousPosition.getX(), previousPosition.getY() - 1));
 
-
         return Arrays.asList(moveForward, moveBackward, moveLeft, moveRight);
     }
 }
